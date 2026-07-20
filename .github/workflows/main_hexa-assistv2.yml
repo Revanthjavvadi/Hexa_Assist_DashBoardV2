@@ -39,7 +39,6 @@ jobs:
     needs: build
 
     permissions:
-      id-token: write
       contents: read
 
     steps:
@@ -48,13 +47,6 @@ jobs:
         with:
           name: node-app
           path: .
-
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_21AA8ECD09514E97A828AECF9C70D30D }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_5ED474D6F0284609ACF1B3F00F5782AD }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6A5CA0C33A044EC8AD8F097EF29FE813 }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
