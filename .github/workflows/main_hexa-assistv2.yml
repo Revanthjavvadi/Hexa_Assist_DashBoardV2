@@ -61,4 +61,5 @@ jobs:
         with:
           app-name: 'Hexa-AssistV2'
           slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
           package: .
