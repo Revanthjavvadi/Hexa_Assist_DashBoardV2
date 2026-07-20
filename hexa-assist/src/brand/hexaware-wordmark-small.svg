@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 28" fill="none">
+  <!--
+    Compact HEXAWARE wordmark for inline use beside page titles.
+    Rendered at ~80px wide, matches the page header font scale.
+  -->
+  <text
+    x="0" y="22"
+    font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+    font-weight="900"
+    font-size="22"
+    fill="#3333CC"
+    letter-spacing="-0.3"
+  >HEXAWARE</text>
+</svg>

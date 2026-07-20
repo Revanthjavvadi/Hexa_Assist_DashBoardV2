@@ -1,0 +1,92 @@
+/* Filter bar */
+.filterBar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+.searchWrap { position: relative; flex: 1; min-width: 200px; }
+.searchIco { position: absolute; left: 9px; top: 50%; transform: translateY(-50%); color: var(--text-tertiary); pointer-events: none; }
+.searchInput {
+  width: 100%; padding: 7px 10px 7px 28px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text-primary);
+  font-size: 13px; font-family: var(--font); outline: none;
+}
+.searchInput:focus { border-color: var(--brand); }
+
+.filterSelect {
+  padding: 7px 10px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text-primary);
+  font-size: 13px; font-family: var(--font); cursor: pointer; outline: none; min-width: 130px;
+}
+.filterSelect:focus { border-color: var(--brand); }
+.filterSelect option {
+  background: var(--surface);
+  color: var(--text-primary);
+}
+
+.countLabel { font-size: 12px; color: var(--text-tertiary); white-space: nowrap; margin-left: auto; }
+
+/* Table */
+.tableCard { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-sm); }
+.tableWrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.table th {
+  text-align: left; padding: 10px 14px; white-space: nowrap;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.4px;
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+}
+.table td { padding: 10px 14px; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+.table tbody tr:last-child td { border-bottom: none; }
+.tableRow { transition: background 0.1s; }
+.tableRow:hover td { background: var(--bg); }
+
+.tsCell     { color: var(--text-secondary); font-size: 11.5px; white-space: nowrap; }
+.deviceCell { font-weight: 600; color: var(--brand); white-space: nowrap; }
+.dimCell    { color: var(--text-secondary); white-space: nowrap; }
+.fixNameCell{ font-weight: 500; white-space: nowrap; }
+.emptyRow   { text-align: center; color: var(--text-tertiary); padding: 32px; }
+
+.userCell { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.avatar {
+  width: 24px; height: 24px; background: var(--brand); color: #fff;
+  border-radius: 50%; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.netBadge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 100px; font-size: 11.5px; font-weight: 600; white-space: nowrap; }
+.netOnline  { background: var(--green-bg); color: var(--green); }
+.netOffline { background: var(--bg); color: var(--text-tertiary); border: 1px solid var(--border); }
+
+.actionTag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--blue-bg); color: var(--brand);
+  padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600; font-family: ui-monospace, Consolas, monospace;
+  white-space: nowrap;
+}
+
+.detailCell { max-width: 300px; }
+.detailText {
+  display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; color: var(--text-secondary); cursor: default;
+}
+
+/* Export btn */
+.exportBtn {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--brand); color: #fff; border: none;
+  padding: 7px 14px; border-radius: var(--radius);
+  font-size: 13px; font-weight: 500; font-family: var(--font);
+  cursor: pointer; transition: background 0.15s;
+}
+.exportBtn:hover { background: var(--brand-dark); }
+
+/* Date range filter */
+.dateRangeWrap {
+  display: flex; align-items: center; gap: 5px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 0 8px 0 0; background: var(--surface); overflow: hidden;
+}
+.dateRangeWrap .filterSelect {
+  border: none; background: transparent; min-width: 120px;
+  padding-left: 4px;
+}
+.filterIco { color: var(--text-tertiary); flex-shrink: 0; }

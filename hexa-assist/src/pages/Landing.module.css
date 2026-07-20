@@ -1,0 +1,423 @@
+/* ===== PAGE & BACKGROUND ===== */
+.page {
+  min-height: 100vh;
+  background: #d5e0ee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .page {
+  background: #121e2e;
+}
+
+/* Subtle grid pattern */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(0, 120, 212, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 120, 212, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .bgGrid {
+  background-image: 
+    linear-gradient(rgba(100, 180, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 180, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Top-right ambient glow */
+.bgGlow {
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 120, 212, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .bgGlow {
+  background: radial-gradient(circle, rgba(0, 120, 212, 0.1) 0%, transparent 70%);
+}
+
+/* ===== TOP-LEFT BRANDING ===== */
+.topBranding {
+  position: absolute;
+  top: 28px;
+  left: 36px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 10;
+}
+
+.hexIcon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 12px rgba(0, 120, 212, 0.2));
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+}
+
+.tagline {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+  letter-spacing: 0.2px;
+  opacity: 0.8;
+}
+
+/* ===== CONTAINER LAYOUT ===== */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== LEFT SIDE — VIDEO ===== */
+.leftSide {
+  flex: 1.4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustrationWrap {
+  position: relative;
+  width: 100%;
+  max-width: 580px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  object-fit: cover;
+  mask-image: radial-gradient(ellipse 95% 90% at center, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 95% 90% at center, black 60%, transparent 100%);
+  filter: drop-shadow(0 12px 40px rgba(0, 120, 212, 0.18));
+}
+
+/* ===== RIGHT SIDE - LOGIN ===== */
+.rightSide {
+  flex-shrink: 0;
+  width: 360px;
+}
+
+.loginBox {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(0, 120, 212, 0.1);
+  border-radius: 20px;
+  padding: 38px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+.loginBox:hover {
+  box-shadow: 0 24px 68px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .loginBox {
+  background: rgba(30, 40, 60, 0.85);
+  border-color: rgba(100, 180, 255, 0.12);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.loginHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.loginIconWrap {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
+.loginTitle {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.loginSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 2px 0 0;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inputLabel {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 14px;
+  color: var(--text-tertiary);
+  pointer-events: none;
+  transition: color 0.2s;
+  z-index: 1;
+}
+
+.inputWrap:focus-within .inputIcon {
+  color: #2563eb;
+}
+
+.input {
+  width: 100%;
+  padding: 13px 16px 13px 42px;
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-size: 14px;
+  font-family: var(--font);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .input {
+  background: rgba(20, 30, 50, 0.5);
+  border-color: rgba(100, 180, 255, 0.12);
+}
+
+.input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.25);
+  background: #fff;
+}
+
+[data-theme="dark"] .input:focus {
+  background: rgba(20, 30, 50, 0.8);
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+.input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* ===== LOGIN BUTTON ===== */
+.loginBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 0;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 6px;
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.loginBtn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  transform: scale(1.02);
+  box-shadow: 0 8px 28px rgba(37, 99, 235, 0.4);
+}
+
+.loginBtn:active:not(:disabled) {
+  transform: scale(0.98);
+  box-shadow: 0 2px 10px rgba(37, 99, 235, 0.3);
+}
+
+/* Loading state */
+.loginBtnLoading {
+  background: linear-gradient(135deg, #1d4ed8, #1e40af);
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+  gap: 12px;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.divider span {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ===== SSO BUTTON ===== */
+.ssoBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 0;
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid rgba(37, 99, 235, 0.2);
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.ssoBtn:hover {
+  border-color: #2563eb;
+  color: #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .leftSide {
+    flex: none;
+    width: 100%;
+  }
+
+  .rightSide {
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .illustrationWrap {
+    max-width: 100%;
+  }
+
+  .topBranding {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+}
+
+
+/* ===== FOOTER INFO ===== */
+.footerInfo {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 5;
+  padding: 0 20px;
+}
+
+.footerItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.footerItem {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.footerDot {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  opacity: 0.5;
+}
+
+.footerCopy {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  margin: 0;
+  opacity: 0.7;
+}

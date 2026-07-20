@@ -1,0 +1,44 @@
+[
+  {
+    "id": "2000189892",
+    "username": "2000189892",
+    "displayName": "Sneha V",
+    "email": "2000189892@hexaware.com",
+    "role": "global_reader"
+  },
+  {
+    "id": "2000189894",
+    "username": "2000189894",
+    "displayName": "Yamini G",
+    "email": "2000189894@hexaware.com",
+    "role": "developer"
+  },
+  {
+    "id": "2000096426",
+    "username": "2000096426",
+    "displayName": "Prince L",
+    "email": "2000096426@hexaware.com",
+    "role": "admin"
+  },
+  {
+    "id": "2000079889",
+    "username": "2000079889",
+    "displayName": "Javvadi Revanth",
+    "email": "2000079889@hexaware.com",
+    "role": "developer"
+  },
+  {
+    "id": "2000189891",
+    "username": "2000189891",
+    "displayName": "Pavithra U",
+    "email": "2000189891@hexaware.com",
+    "role": "reader_pin"
+  },
+  {
+    "id": "2000189893",
+    "username": "2000189893",
+    "displayName": "Sreeni S",
+    "email": "2000189893@hexaware.com",
+    "role": "reader_tag"
+  }
+]

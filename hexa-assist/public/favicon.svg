@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 220" fill="none">
+  <!-- LEFT BAR -->
+  <rect x="12" y="6" width="48" height="188" rx="24" fill="#3333CC" transform="skewX(5)"/>
+  <!-- CROSSBAR with rounded nub -->
+  <path d="M 52 98 L 130 98 Q 148 98 148 116 Q 148 136 130 136 L 52 136 Z" fill="#3333CC"/>
+  <!-- RIGHT BAR — italic forward slash -->
+  <rect x="148" y="6" width="46" height="188" rx="23" fill="#3333CC" transform="skewX(-10)"/>
+</svg>

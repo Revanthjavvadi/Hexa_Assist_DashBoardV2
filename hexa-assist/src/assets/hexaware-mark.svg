@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 108" fill="none">
+  <!--
+    Hexaware "H" mark — exact recreation from the brand image:
+    • Left vertical bar: straight, rounded ends
+    • Right vertical bar: slightly slanted (bottom-right offset)
+    • Crossbar: runs only from left bar to center (asymmetric — NOT a full H crossbar)
+    • All in brand blue #3333CC
+  -->
+
+  <!-- Left vertical bar -->
+  <rect x="4" y="4" width="26" height="100" rx="13" fill="#3333CC"/>
+
+  <!-- Crossbar — extends half-way only (left to mid), sits at vertical center -->
+  <path d="M4 44 H58 Q71 44 71 57 Q71 70 58 70 H4 Z" fill="#3333CC" rx="13"/>
+
+  <!-- Right vertical bar — angled: top offset right, bottom further right -->
+  <path
+    d="M71 4 Q84 4 84 17 L90 91 Q90 104 77 104 Q64 104 64 91 L58 17 Q58 4 71 4 Z"
+    fill="#3333CC"
+  />
+</svg>

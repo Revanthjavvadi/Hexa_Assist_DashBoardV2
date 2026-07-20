@@ -1,0 +1,410 @@
+/* ── KPI cards grid ──────────────────────────── */
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+/* ── 2-col main chart grid ───────────────────── */
+.chartGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+/* span-2 utility for children inside chartGrid */
+.span2 {
+  grid-column: span 2;
+}
+
+/* ── 3-col inventory compact grid ────────────── */
+.inventoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* ── Device Health Distribution compact layout ── */
+.healthCardWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.healthStatRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0 2px;
+}
+
+.healthStat {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 80px;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s, box-shadow 0.12s;
+}
+.healthStat:hover {
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.healthStatDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.healthStatVal {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.healthStatLabel {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ── Pie chart wrapper with legend ──────────── */
+.pieWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pieLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 0 4px;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--surface);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  font-family: inherit;
+}
+.legendItem:hover {
+  background: var(--bg);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.07);
+}
+.legendActive {
+  background: var(--blue-bg);
+  border-color: var(--brand);
+  box-shadow: 0 0 0 2px rgba(0,120,212,0.15);
+}
+
+.legendDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.legendCount {
+  color: var(--text-tertiary);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ── Mini pie + side legend layout ─────────── */
+.miniPieWrap {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  min-height: 150px;
+}
+
+.miniPieLegend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-left: 6px;
+  overflow: hidden;
+}
+
+.miniLegendRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  padding: 3px 5px;
+  border-radius: var(--radius);
+  font-family: inherit;
+  width: 100%;
+  transition: background 0.1s;
+}
+.miniLegendRow:hover {
+  background: var(--bg);
+}
+
+.miniLegendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.miniLegendName {
+  flex: 1;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.miniLegendVal {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+/* ── Drill-down modal backdrop ───────────────── */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 700;
+  animation: fadeBackdrop 0.16s ease;
+}
+
+@keyframes fadeBackdrop {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Drill-down modal ────────────────────────── */
+.detailModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(940px, calc(100vw - 40px));
+  max-height: calc(100vh - 72px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modalPop 0.18s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes modalPop {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.95); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.detailHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  flex-shrink: 0;
+}
+
+.detailHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.detailDot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.detailTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.detailSubtitle {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  margin: 2px 0 0;
+}
+
+.detailActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: opacity 0.12s, transform 0.12s;
+  font-family: inherit;
+}
+.exportBtn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.closeBtn:hover { background: var(--bg); }
+
+.detailTableWrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(100vh - 200px);
+}
+
+.detailTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.detailTable th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+  padding: 9px 13px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+}
+
+.detailTable td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.detailTable tbody tr:last-child td { border-bottom: none; }
+.detailTable tbody tr:hover td { background: var(--bg); }
+
+.deviceName {
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.tsText {
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.detailText {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.statusSuccess { background: #dcfce7; color: #16a34a; }
+.statusFailed  { background: #fee2e2; color: #dc2626; }
+.statusPending { background: #fef3c7; color: #d97706; }
+.statusOffline { background: var(--bg); color: var(--text-tertiary); border: 1px solid var(--border); }
+
+.netBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+}
+.netOnline  { background: #dcfce7; color: #16a34a; }
+.netOffline { background: var(--bg); color: var(--text-tertiary); border: 1px solid var(--border); }
+
+.emptyDrill {
+  padding: 40px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 1100px) {
+  .inventoryGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px) {
+  .chartGrid { grid-template-columns: 1fr; }
+  .span2 { grid-column: span 1; }
+  .inventoryGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .inventoryGrid { grid-template-columns: 1fr; }
+}

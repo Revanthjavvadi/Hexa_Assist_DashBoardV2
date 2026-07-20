@@ -1,0 +1,649 @@
+/* ── Header buttons ──────────────────────────── */
+.headerBtns { display: flex; gap: 8px; }
+.ghostBtn {
+  display: flex; align-items: center; gap: 5px;
+  background: none; border: 1px solid var(--border);
+  color: var(--text-secondary); padding: 6px 12px;
+  border-radius: var(--radius); font-size: 12px;
+  cursor: pointer; font-family: var(--font);
+  transition: background 0.12s;
+}
+.ghostBtn:hover { background: var(--bg); color: var(--text-primary); }
+
+/* ── Summary strip ───────────────────────────── */
+.summaryStrip {
+  display: flex; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 20px;
+}
+.summaryCard {
+  flex: 1; min-width: 120px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius-lg);
+  padding: 12px 16px;
+  display: flex; align-items: center; gap: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.summaryVal { font-size: 22px; font-weight: 700; line-height: 1; }
+.summaryLbl { font-size: 11px; color: var(--text-secondary); font-weight: 500; margin-top: 3px; }
+
+/* ── Filter bar ──────────────────────────────── */
+.filterBar {
+  display: flex; align-items: center;
+  gap: 10px; flex-wrap: wrap; margin-bottom: 14px;
+}
+.searchWrap {
+  position: relative; flex: 1; min-width: 180px;
+}
+.searchIco {
+  position: absolute; left: 9px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary); pointer-events: none;
+}
+.searchInput {
+  width: 100%; padding: 7px 10px 7px 28px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text-primary);
+  font-size: 13px; font-family: var(--font); outline: none;
+}
+.searchInput:focus { border-color: var(--brand); }
+
+.filterGroup {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4px 8px;
+}
+.filterGroupLabel {
+  display: flex; align-items: center; gap: 3px;
+  font-size: 11px; font-weight: 600;
+  color: var(--text-tertiary); white-space: nowrap;
+  padding-right: 4px;
+  border-right: 1px solid var(--border);
+  margin-right: 2px;
+}
+.filterBtn {
+  padding: 3px 9px;
+  border: none; border-radius: 100px;
+  background: none; font-size: 11.5px;
+  font-family: var(--font); color: var(--text-secondary);
+  cursor: pointer; transition: all 0.1s; white-space: nowrap;
+}
+.filterBtn:hover { background: var(--bg); color: var(--text-primary); }
+.filterActive { background: var(--brand); color: #fff; }
+.filterActive:hover { background: var(--brand-dark); }
+
+.countLabel {
+  font-size: 12px; color: var(--text-tertiary);
+  white-space: nowrap; margin-left: auto;
+}
+
+/* ── Table ───────────────────────────────────── */
+.tableCard {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.tableWrap { overflow-x: auto; }
+.table { width: 100%; border-collapse: collapse; font-size: 12.5px; white-space: nowrap; }
+.table th {
+  text-align: left; padding: 10px 14px;
+  font-size: 11px; font-weight: 600; color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.4px;
+  background: var(--surface-2); border-bottom: 1px solid var(--border);
+}
+.table td { padding: 10px 14px; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+.table tbody tr:last-child td { border-bottom: none; }
+.tableRow { cursor: pointer; transition: background 0.1s; }
+.tableRow:hover td { background: var(--bg); }
+
+.tsCell     { color: var(--text-secondary); font-size: 11.5px; display: flex; align-items: center; }
+.deviceCell { font-weight: 600; color: var(--brand); }
+.dimCell    { color: var(--text-secondary); }
+.arrowCell  { color: var(--text-tertiary); }
+.emptyRow   { text-align: center; padding: 32px; color: var(--text-tertiary); }
+
+.userCell { display: flex; align-items: center; gap: 8px; }
+.avatar {
+  width: 24px; height: 24px; background: var(--brand); color: #fff;
+  border-radius: 50%; font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+
+.netBadge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 100px; font-size: 11.5px; font-weight: 600; }
+.netOnline  { background: var(--green-bg); color: var(--green); }
+.netOffline { background: var(--bg); color: var(--text-tertiary); border: 1px solid var(--border); }
+
+/* Status badges */
+.badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 9px; border-radius: 100px;
+  font-size: 11.5px; font-weight: 600; white-space: nowrap;
+}
+.badgeGreen { background: var(--green-bg); color: var(--green); }
+.badgeRed   { background: var(--red-bg);   color: var(--red); }
+.badgeYellow{ background: var(--yellow-bg);color: var(--yellow); }
+.badgeNa    { background: var(--bg); color: var(--text-secondary); border: 1px solid var(--border); }
+
+/* ── Detail panel ────────────────────────────── */
+.panelBody { display: flex; flex-direction: column; gap: 20px; }
+.panelSection {}
+.panelSectionTitle {
+  font-size: 11px; font-weight: 700; color: var(--text-secondary);
+  text-transform: uppercase; letter-spacing: 0.6px;
+  margin: 0 0 12px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.infoGrid  { display: flex; flex-direction: column; gap: 8px; }
+.infoRow   { display: flex; align-items: center; gap: 10px; font-size: 13px; }
+.infoIcon  { color: var(--text-tertiary); flex-shrink: 0; }
+.infoLabel { min-width: 120px; flex-shrink: 0; color: var(--text-secondary); font-weight: 500; }
+.infoValue { color: var(--text-primary); }
+
+.checksList { display: flex; flex-direction: column; gap: 8px; }
+.checkRow {
+  display: flex; align-items: flex-start;
+  justify-content: space-between; gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  border-left: 3px solid var(--green);
+}
+.checkRowFail { border-left-color: var(--red);    background: color-mix(in srgb, var(--red-bg) 40%, var(--surface-2)); }
+.checkRowWarn { border-left-color: var(--yellow); background: color-mix(in srgb, var(--yellow-bg) 30%, var(--surface-2)); }
+
+.checkLeft  { display: flex; align-items: flex-start; gap: 10px; flex: 1; }
+.checkInfo  { display: flex; flex-direction: column; gap: 3px; }
+.checkName  { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+.checkDetail{ font-size: 12px; color: var(--text-secondary); line-height: 1.4; }
+
+.iconPass { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+.iconFail { color: var(--red);   flex-shrink: 0; margin-top: 1px; }
+.iconWarn { color: var(--yellow);flex-shrink: 0; margin-top: 1px; }
+
+.overallBox {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px; border-radius: var(--radius-lg);
+  font-size: 14px; font-weight: 700; border: 1px solid;
+}
+.overallGreen { background: var(--green-bg);  color: var(--green); border-color: var(--green); }
+.overallRed   { background: var(--red-bg);    color: var(--red);   border-color: var(--red); }
+
+/* Dropdown filter */
+.filterSelect {
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-family: var(--font);
+  cursor: pointer;
+  outline: none;
+  min-width: 130px;
+}
+.filterSelect:focus { border-color: var(--brand); }
+
+/* ── KPI bar chart (replaces summary cards) ─────────────────── */
+.kpiChartCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px 10px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 14px;
+}
+
+.kpiChartTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+/* ── Four security pie charts ────────────────────────────────── */
+.secPieGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+@media (max-width: 1100px) { .secPieGrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px)  { .secPieGrid { grid-template-columns: 1fr; } }
+
+.secPieCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px 10px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.secPieHeader {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.secPieIcon {
+  color: var(--brand);
+  display: flex;
+  align-items: center;
+}
+
+.secPieTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Wrapper that stacks the ResponsiveContainer + the absolute centre label */
+.secPieWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Percentage in the donut hole */
+.secPieCentre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.secPiePct {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+/* Pass / fail legend beneath the donut */
+.secPieLegend {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 2px 0;
+}
+
+.secPieLegendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.secPieDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Drill-down: clickable pie legend buttons ───────────────── */
+.secPieLegendBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font);
+  font-size: 11.5px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 4px 5px;
+  border-radius: var(--radius);
+  text-align: left;
+  transition: background 0.1s;
+}
+.secPieLegendBtn:hover {
+  background: var(--bg);
+  color: var(--text-primary);
+}
+
+.secPieLegendCount {
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 22px;
+}
+
+.secPieLegendLabel {
+  flex: 1;
+}
+
+/* ── Drill-down modal backdrop ───────────────────────────────── */
+.drillBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 700;
+  animation: drillFade 0.16s ease;
+}
+@keyframes drillFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Drill-down modal ────────────────────────────────────────── */
+.drillModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(960px, calc(100vw - 40px));
+  max-height: calc(100vh - 72px);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.22);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: drillPop 0.18s cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+@keyframes drillPop {
+  from { opacity: 0; transform: translate(-50%, -48%) scale(0.95); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.drillHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  flex-shrink: 0;
+}
+
+.drillHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.drillDot {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.drillTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.drillSubtitle {
+  font-size: 11.5px;
+  color: var(--text-tertiary);
+  margin: 2px 0 0;
+}
+
+.drillActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.drillExportBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 13px;
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--brand);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: opacity 0.12s, transform 0.12s;
+}
+.drillExportBtn:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.drillCloseBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.12s;
+}
+.drillCloseBtn:hover { background: var(--bg); }
+
+.drillTableWrap {
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  max-height: calc(100vh - 200px);
+}
+
+.drillTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+.drillTable th {
+  position: sticky;
+  top: 0;
+  background: var(--surface-2);
+  padding: 9px 13px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  border-bottom: 1px solid var(--border);
+  z-index: 1;
+}
+.drillTable td {
+  padding: 9px 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+}
+.drillTable tbody tr:last-child td { border-bottom: none; }
+
+.drillRow {
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.drillRow:hover td { background: var(--bg); }
+
+.drillDevice {
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.drillDim {
+  color: var(--text-secondary);
+}
+
+.drillEmpty {
+  padding: 48px;
+  text-align: center;
+  color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+/* ── Compact overview pie layout ────────────────────────────── */
+.kpiOverviewWrap {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.kpiPieWrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+}
+
+.kpiPieCentre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  gap: 1px;
+}
+
+.kpiPiePct {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.kpiPieLabel {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.kpiStatGrid {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.kpiStatCard {
+  flex: 1;
+  min-width: 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--brand);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  font-family: var(--font);
+  text-align: left;
+  transition: background 0.12s, box-shadow 0.12s;
+}
+.kpiStatCard:hover {
+  background: var(--surface-2);
+  box-shadow: var(--shadow-sm);
+}
+
+.kpiStatVal {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.kpiStatLabel {
+  font-size: 11px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+/* ── Two overview pie charts ─────────────────────────────────── */
+.overviewPieGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+@media (max-width: 600px) { .overviewPieGrid { grid-template-columns: 1fr; } }
+
+.overviewPieCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px 12px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.overviewPieTitle {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  align-self: flex-start;
+}
+
+.overviewPieWrap {
+  position: relative;
+  width: 100%;
+}
+
+.overviewPieCentre {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.overviewPieVal {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.5px;
+}
+
+.overviewPieBtn {
+  margin-top: 2px;
+  padding: 5px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  background: none;
+  border: 1px solid;
+  border-radius: 100px;
+  cursor: pointer;
+  font-family: var(--font);
+  transition: background 0.12s, opacity 0.12s;
+}
+.overviewPieBtn:hover { opacity: 0.75; background: var(--bg); }

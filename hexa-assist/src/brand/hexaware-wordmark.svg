@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" fill="none">
+  <!--
+    HEXAWARE wordmark in brand blue.
+    Uses system font fallback — for pixel-perfect match, replace with embedded font or PNG.
+  -->
+  <text
+    x="0" y="48"
+    font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+    font-weight="900"
+    font-size="52"
+    fill="#3333CC"
+    letter-spacing="-0.5"
+  >HEXAWARE</text>
+</svg>

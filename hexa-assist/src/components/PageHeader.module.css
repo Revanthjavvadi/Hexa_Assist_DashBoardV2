@@ -1,0 +1,61 @@
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Title + separator + wordmark all on one line */
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+}
+
+.sep {
+  color: var(--text-tertiary);
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* Hexaware wordmark — height matches the title text cap-height */
+.wordmark {
+  height: 18px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  /* Keep visible in both light and dark themes */
+  filter: none;
+}
+
+[data-theme="dark"] .wordmark {
+  /* SVG uses #3333CC — already visible on dark bg, no filter needed */
+  filter: brightness(1.15);
+}
+
+.subtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 3px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}

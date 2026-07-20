@@ -1,0 +1,190 @@
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+.searchWrap { position: relative; flex: 1; min-width: 200px; max-width: 340px; display: flex; align-items: center; }
+.searchIco  { position: absolute; left: 10px; color: var(--text-tertiary); pointer-events: none; }
+.searchInput {
+  width: 100%; padding: 7px 10px 7px 30px;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg); color: var(--text-primary);
+  font-size: 13px; font-family: var(--font); outline: none;
+}
+.searchInput:focus { border-color: var(--brand); }
+.filterInput {
+  padding: 7px 10px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--bg); color: var(--text-primary); font-size: 13px;
+  font-family: var(--font); outline: none; min-width: 170px;
+}
+.filterInput:focus { border-color: var(--brand); }
+.countLabel { font-size: 12px; color: var(--text-secondary); white-space: nowrap; margin-left: auto; }
+
+.infoBanner {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 10px 14px; margin-bottom: 16px;
+  background: color-mix(in srgb, var(--brand) 6%, transparent);
+  border: 1px solid color-mix(in srgb, var(--brand) 20%, transparent);
+  border-radius: var(--radius); font-size: 13px; color: var(--text-secondary);
+}
+.infoBanner svg { flex-shrink: 0; color: var(--brand); margin-top: 1px; }
+
+.tableCard  { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+.tableWrap  { overflow-x: auto; }
+.table      { width: 100%; border-collapse: collapse; font-size: 13px; }
+.table thead th {
+  padding: 10px 14px; text-align: left; font-size: 11.5px; font-weight: 600;
+  color: var(--text-secondary); background: var(--bg);
+  border-bottom: 1px solid var(--border); white-space: nowrap;
+}
+.tableRow   { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+.tableRow:last-child { border-bottom: none; }
+.tableRow:hover { background: var(--bg); }
+.tableRow td { padding: 10px 14px; vertical-align: middle; }
+
+.dimCell       { color: var(--text-secondary); font-size: 12px; }
+.hostnameCell  { font-weight: 600; color: var(--brand); font-size: 13px; }
+
+.expiryBadge {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 8px; border-radius: 100px; font-size: 11px; font-weight: 500;
+}
+.active  { background: color-mix(in srgb, #22c55e 10%, transparent); color: #15803d; }
+.expired { background: color-mix(in srgb, #ef4444 10%, transparent); color: #b91c1c; }
+[data-theme='dark'] .active  { color: #86efac; }
+[data-theme='dark'] .expired { color: #fca5a5; }
+
+.pinCell {
+  display: flex; align-items: center; gap: 6px;
+}
+.pinValue {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px; font-weight: 600;
+  letter-spacing: 3px; color: var(--text-secondary);
+  min-width: 70px; display: inline-block;
+}
+.pinVisible { color: var(--brand); letter-spacing: 4px; }
+.pinError   { font-size: 11px; color: var(--red); }
+
+.iconBtn {
+  background: none; border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 6px; cursor: pointer; color: var(--text-secondary);
+  display: flex; align-items: center; transition: all 0.12s;
+}
+.iconBtn:hover:not(:disabled) { background: var(--bg); color: var(--brand); border-color: var(--brand); }
+.iconBtn:disabled { opacity: 0.4; cursor: not-allowed; }
+.copied { color: #22c55e; border-color: #22c55e; }
+
+.ghostBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px; font-size: 12px; font-weight: 500;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text-secondary);
+  cursor: pointer; font-family: var(--font); transition: all 0.12s;
+}
+.ghostBtn:hover:not(:disabled) { border-color: var(--brand); color: var(--brand); background: var(--bg); }
+.ghostBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.emptyRow { text-align: center; padding: 32px; color: var(--text-secondary); }
+
+/* ── Audit Log ───────────────────────────────────────────────────────────────── */
+.auditBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 14px; font-size: 12px; font-weight: 600;
+  border: 1px solid var(--brand); border-radius: var(--radius);
+  background: color-mix(in srgb, var(--brand) 10%, transparent);
+  color: var(--brand); cursor: pointer; font-family: var(--font);
+  transition: all 0.12s;
+}
+.auditBtn:hover { background: var(--brand); color: #fff; }
+
+.auditBackBtn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 6px 12px; font-size: 12px; font-weight: 500;
+  border: 1px solid var(--border); border-radius: var(--radius);
+  background: var(--surface); color: var(--text-secondary);
+  cursor: pointer; font-family: var(--font); transition: all 0.12s;
+}
+.auditBackBtn:hover { border-color: var(--brand); color: var(--brand); background: var(--bg); }
+
+.auditCountBtn {
+  background: none; border: none; cursor: pointer;
+  font-size: 13px; font-weight: 700; font-family: var(--font);
+  padding: 2px 6px; border-radius: 4px; transition: all 0.12s;
+}
+.auditCountBtn:disabled { cursor: default; opacity: 0.4; }
+.auditCountSuccess {
+  color: #15803d;
+  background: color-mix(in srgb, #22c55e 12%, transparent);
+}
+.auditCountSuccess:hover:not(:disabled) {
+  background: color-mix(in srgb, #22c55e 25%, transparent);
+}
+.auditCountFailed {
+  color: #b91c1c;
+  background: color-mix(in srgb, #ef4444 12%, transparent);
+}
+.auditCountFailed:hover:not(:disabled) {
+  background: color-mix(in srgb, #ef4444 25%, transparent);
+}
+[data-theme='dark'] .auditCountSuccess { color: #86efac; }
+[data-theme='dark'] .auditCountFailed  { color: #fca5a5; }
+
+/* ── Attempt Details Modal ────────────────────────────────────────────────────── */
+.modalOverlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.45); backdrop-filter: blur(2px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px;
+}
+.modalBox {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); width: 100%; max-width: 620px;
+  max-height: 80vh; display: flex; flex-direction: column;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.modalHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-bottom: 1px solid var(--border); flex-shrink: 0;
+}
+.modalTitle {
+  font-size: 14px; font-weight: 700; color: var(--text-primary);
+  display: flex; align-items: center; gap: 8px;
+}
+.modalSubtitle { font-size: 12px; color: var(--text-secondary); font-weight: 400; margin-top: 2px; }
+.modalClose {
+  background: none; border: 1px solid var(--border); border-radius: 6px;
+  padding: 4px 8px; cursor: pointer; color: var(--text-secondary);
+  font-size: 16px; line-height: 1; transition: all 0.12s;
+}
+.modalClose:hover { background: var(--bg); color: var(--text-primary); border-color: var(--text-secondary); }
+.modalBody { overflow-y: auto; padding: 0; flex: 1; }
+.modalEmpty { text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 13px; }
+
+.modalTable { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.modalTable thead th {
+  padding: 9px 14px; text-align: left; font-size: 11px; font-weight: 600;
+  color: var(--text-secondary); background: var(--bg);
+  border-bottom: 1px solid var(--border); white-space: nowrap; position: sticky; top: 0;
+}
+.modalTable tbody tr { border-bottom: 1px solid var(--border); }
+.modalTable tbody tr:last-child { border-bottom: none; }
+.modalTable tbody tr:hover { background: var(--bg); }
+.modalTable tbody td { padding: 9px 14px; vertical-align: middle; color: var(--text-primary); }
+.modalBadgeSuccess {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 7px; border-radius: 100px; font-size: 10.5px; font-weight: 600;
+  background: color-mix(in srgb, #22c55e 10%, transparent); color: #15803d;
+}
+.modalBadgeFailed {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 2px 7px; border-radius: 100px; font-size: 10.5px; font-weight: 600;
+  background: color-mix(in srgb, #ef4444 10%, transparent); color: #b91c1c;
+}
+[data-theme='dark'] .modalBadgeSuccess { color: #86efac; }
+[data-theme='dark'] .modalBadgeFailed  { color: #fca5a5; }
