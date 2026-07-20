@@ -20,19 +20,38 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24.x'
+          node-version: '20.x'
 
-      - name: Install dependencies and build frontend
+      # ── Frontend build (Vite) ──────────────────────────────────────────────
+      # VITE_API_BASE_URL is baked at build time. Empty string = same-origin,
+      # which is what we want because Express (in hexa-backend) will serve
+      # both the static bundle AND /api/* on the same Azure Web App URL.
+      - name: Install and build frontend
         working-directory: ./hexa-assist
+        env:
+          VITE_API_BASE_URL: ''
         run: |
-          npm install
+          npm ci
           npm run build
 
-      - name: Upload frontend build artifact
+      # ── Copy the built dist folder into hexa-backend/public ────────────────
+      - name: Copy built frontend into backend/public
+        run: |
+          rm -rf ./hexa-backend/public
+          mkdir -p ./hexa-backend/public
+          cp -r ./hexa-assist/dist/. ./hexa-backend/public/
+
+      # ── Install backend production dependencies ────────────────────────────
+      - name: Install backend production dependencies
+        working-directory: ./hexa-backend
+        run: npm ci --omit=dev
+
+      # ── Package only the backend folder for Azure App Service ──────────────
+      - name: Upload deployment artifact
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: ./hexa-assist/dist
+          path: ./hexa-backend
 
   deploy:
     runs-on: ubuntu-latest

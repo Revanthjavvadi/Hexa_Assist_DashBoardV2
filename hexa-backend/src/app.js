@@ -1,4 +1,5 @@
 'use strict';
+const path       = require('path');
 const express    = require('express');
 const helmet     = require('helmet');
 const cors       = require('cors');
@@ -29,7 +30,9 @@ const app = express();
 // ── Security headers ─────────────────────────────────────────
 app.use(helmet());
 
-// ── CORS — only allow the frontend origin ────────────────────
+// ── CORS — allow configured origin(s). Same-origin (SPA served by this
+//         Express app in production) does not need CORS, but keep it enabled
+//         for local dev where the Vite server runs on a different port.
 app.use(cors({
   origin:      config.frontendOrigin,
   methods:     ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
@@ -66,6 +69,23 @@ app.use('/api/admin',           adminRouter);
 app.use('/api/auth',            authRouter);
 app.use('/api/temp-access',     tempAccessRouter);
 app.use('/api/migrate',         migrateRouter);
+
+// ── Serve the built frontend (Vite → dist copied to backend/public) ──────────
+//    In production, the GitHub Actions workflow copies `hexa-assist/dist`
+//    into `hexa-backend/public` so the same App Service serves both.
+const publicDir = path.join(__dirname, '..', 'public');
+app.use(express.static(publicDir));
+
+// ── SPA fallback ─────────────────────────────────────────────
+//    Any non-API GET that doesn't match a static file returns index.html so
+//    React Router can handle client-side routes (e.g. /dashboard/overview).
+app.use((req, res, next) => {
+  if (req.method !== 'GET') return next();
+  if (req.path.startsWith('/api') || req.path.startsWith('/health')) return next();
+  res.sendFile(path.join(publicDir, 'index.html'), (err) => {
+    if (err) next();
+  });
+});
 
 // ── 404 & error handling ─────────────────────────────────────
 app.use(notFound);
